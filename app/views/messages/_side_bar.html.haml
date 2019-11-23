@@ -12,11 +12,10 @@
           = link_to edit_user_path(current_user) do
             %i.fa.fa-cog
   .group
-    .group__group-name1
-      test1
-    .group__group-message1
-      まだメッセージはありません
-    .group__group-name2
-      test2
-    .group__group-message2
-      まだメッセージはありません
+    - current_user.groups.each do |group|
+      .group
+        = link_to group_messages_path(group) do
+          .group__name
+            = group.name
+          .group__message
+            メッセージはまだありません。
