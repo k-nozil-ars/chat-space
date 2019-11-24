@@ -17,11 +17,10 @@
       .massege-text
         this is the first message
   .form
-    .input
-      .input-box
-        %input.input-box__text{placeholder: "type a message"}
-        %label.input-box__image{class: "input-box__image"}
-          = icon('fas', 'image')
-          %input.hidden{type: "file"}
-      .submit-btn
-        %input.submit-btn__send{type: "submit", value: "Send"}
+    = form_for [@group, @message] do |f|
+      = f.text_field :content, class: 'form__text', placeholder: 'type a message'
+      .form__mask
+        = f.label :image, class: 'form__mask__image' do
+          = icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class: 'form__send'
