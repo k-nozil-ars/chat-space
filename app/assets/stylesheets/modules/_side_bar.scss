@@ -32,21 +32,25 @@
         }
       }
     }
-  .group {
+  .groups {
     height: calc(100vh - 100px);
     background-color: #2f3e51;
     color: #ffffff;
     align-items: center;
     padding: 20px 20px 0;
-    &__name {
-      display: flex;
-      font-size: 15px;
-      font-weight: bold;
-    }
-    &__message {
-      font-size: 11px;
-      display: flex;
-      font-weight: bold;
+    .group{
+      margin-bottom: 40px;
+      &__name {
+        display: flex;
+        font-size: 15px;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+      &__message {
+        font-size: 11px;
+        display: flex;
+        font-weight: bold;
+      }
     }
   }
 }
