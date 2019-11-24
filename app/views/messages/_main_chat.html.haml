@@ -9,13 +9,7 @@
       Edit
   .messages
     .message
-      .message-upper
-        .message-upper__talker
-          kenta
-        .message-upper__date
-          2019/11/16(sat) 13:30
-      .massege-text
-        this is the first message
+      = render @messages
   .form
     = form_for [@group, @message] do |f|
       = f.text_field :content, class: 'form__text', placeholder: 'type a message'
