@@ -2,9 +2,11 @@
   .main-header
     .main-header-leftbox
       .main-header-leftbox__currentgroup
-        group name
+        = @group.name
       .main-header-leftbox__memberlist
-        member
+        Member : 
+        - @group.group_users.each do |group_user|
+          = group_user.user.name
     .main-header-editbtn
       Edit
   .messages
