@@ -8,7 +8,8 @@
         - @group.group_users.each do |group_user|
           = group_user.user.name
     .main-header-editbtn
-      Edit
+      = link_to edit_group_path(@group) , class: 'main-header-editbtn__box' do
+        Edit
   .messages
     .message
       = render @messages
