@@ -2,26 +2,22 @@
   .main-header
     .main-header-leftbox
       .main-header-leftbox__currentgroup
-        group name
+        = @group.name
       .main-header-leftbox__memberlist
-        member
+        Member : 
+        - @group.group_users.each do |group_user|
+          = group_user.user.name
     .main-header-editbtn
-      Edit
+      = link_to edit_group_path(@group) , class: 'main-header-editbtn__box' do
+        Edit
   .messages
     .message
-      .message-upper
-        .message-upper__talker
-          kenta
-        .message-upper__date
-          2019/11/16(sat) 13:30
-      .massege-text
-        this is the first message
+      = render @messages
   .form
-    .input
-      .input-box
-        %input.input-box__text{placeholder: "type a message"}
-        %label.input-box__image{class: "input-box__image"}
-          = icon('fas', 'image')
-          %input.hidden{type: "file"}
-      .submit-btn
-        %input.submit-btn__send{type: "submit", value: "Send"}
+    = form_for [@group, @message] do |f|
+      = f.text_field :content, class: 'form__text', placeholder: 'type a message'
+      .form__mask
+        = f.label :image, class: 'form__mask__image' do
+          = icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class: 'form__send'
