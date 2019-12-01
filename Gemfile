@@ -62,3 +62,7 @@ gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'pry-rails'
+
+group :test, :development do 
+  gem 'capybara'
+end
