@@ -65,6 +65,8 @@ $(function(){
       $('.form__send').prop('disabled', false);
     })
   })
+
+  if (window.location.href.match(/\/groups\/\d+\/messages/)){
   var reloadMessages = function() {
     last_message_id = $('.message:last').data("message-id");
     $.ajax({
@@ -86,4 +88,5 @@ $(function(){
     });
   };
   setInterval(reloadMessages, 7000);
+  }
 })
