@@ -82,7 +82,7 @@ $(function(){
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
     })
     .fail(function() {
-      console.log('error');
+      alert("メッセージ送信に失敗しました");
     });
   };
   setInterval(reloadMessages, 7000);
